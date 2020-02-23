@@ -2,20 +2,83 @@
     box-sizing: border-box;
 
 }
+#screen{
+    padding: 0 0.5em;
+    font-size: 1.5em;
+    line-height: 2em;
+    background-color: #a4d478;
+    color: #129942;/*couleur envisageble mais regarder dans les bleus pour mon pendu*/
+    font-family: "Lucida Console", sans-serif;
+    min-height: 2em;
+}
+#clavier{
+    height: 50vh;/*vh veut dire 50% de viewport Height ça s'adapte à l'écran ou ça s'affiche*/
+    overflow: hidden;
+
+}
 
 .ligne{
     display: flex;
     justify-content: center;
 }
-.touche{
-    width:3em;
-    height: 3em;
-    padding: 1em;
-    text-align: center;
-    background-color: #888;
-    color: #3F61A6;
-    font-size: 1em;
-    margin: 0.5em;
-    border-radius: 6px;
-
+    .touche{
+        width:3em;
+        height: 3em;
+        padding: 1em;
+        text-align: center;
+        background-color: #888;
+        color: #3F61A6;
+        font-size: 1em;
+        margin: 0.5em;
+        border-radius: 6px;
+        height: 3em;
+        margin: 0.5em;
+        font-size: 1em;
+        cursor: pointer;/*on change la tronche de la souris en pointer*/
+        transition: transform 1s, background-color 2s, font-size 1s, color 1s, width 1s, height 1s, margin 1s;
+/*alors la propriété transition signale que sur cette classe on spécifie que les attributs:
+ transform background font-size etc etc vont être modifié lors d'évenement avec une durée temporelle pour passer de l"un à l'autre.
+ changement de couleur en douceur par exemple*/ 
+    }
+        .touche:hover{/*quand on passe la souris au dessus*/
+            transform: scale(1.3);/*signaler en transition que transform mettrait 1s à agir*/
+        }
+        .touche.click{/*ajout de la classe click a la classe touche*/
+            color: #fff; 
+            background-color: #45d210;/*signaler en transition le bgcolore mettra 2s à passer de l'un à l'autre*/
+        }
+        .touche{/* on va faire de l'animation*/
+            animation-duration: 2s;
+            animation-name: slidein;/*on identifie le truc*/
+            animation-timing-function: ease;/*rythme de l'animation par contre ça c'est pas encore totalement au point*/
+        }
+        
+        @keyframes slidein {/*from et to c'est la ligne temporelle de l'animation*/
+          from {/*from point de départ*/
+            margin-top: 100%;
+            margin-left: 100%;
+            
+          }
+          
+          15%{/*à 15% du temps! de l'animation il se passe un truc*/
+            transform: rotate(360deg); 
+          }
+          
+        
+          to {/*to point d'arrivée*/
+            margin-top: 0.5em;
+            margin-left: 0.5em;
+           
+          }
+        }
+@media all and (min-width:1200px){/*mediaquery* on préferera écrire media all que media screen parce que safari fait chier*/
+    .touche{      
+        font-size: 1.5em;    
+    }
+}
+@media all and (max-width:650px){
+    .touche{      
+        margin: 0.2em;
+        font-size: 0.8em;    
+    }
 }
