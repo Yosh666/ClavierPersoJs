@@ -22,20 +22,17 @@
     justify-content: center;
 }
     .touche{
-        width:3em;
-        height: 3em;
-        padding: 1em;
-        text-align: center;
-        background-color: #888;
-        color: #3F61A6;
-        font-size: 1em;
-        margin: 0.5em;
-        border-radius: 6px;
-        height: 3em;
-        margin: 0.5em;
-        font-size: 1em;
-        cursor: pointer;/*on change la tronche de la souris en pointer*/
-        transition: transform 1s, background-color 2s, font-size 1s, color 1s, width 1s, height 1s, margin 1s;
+    padding: 1em;
+    background-color: #ddd;
+    color: #888;
+    text-align: center;
+    border-radius: 6px;
+    min-width: 3em;
+    height: 3em;
+    margin: 0.5em;
+    font-size: 1em;
+    cursor: pointer;/*on change la tronche de la souris en pointer*/
+    transition: transform 1s, background-color 2s, font-size 1s, color 1s, width 1s, height 1s, margin 1s;
 /*alors la propriété transition signale que sur cette classe on spécifie que les attributs:
  transform background font-size etc etc vont être modifié lors d'évenement avec une durée temporelle pour passer de l"un à l'autre.
  changement de couleur en douceur par exemple*/ 
